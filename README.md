@@ -18,8 +18,3 @@ Scikit-image 0.21.0
 * KNN (K-Nearest Neighbors)
 * SVM (Support Vector Machine)
 
-## Report
-
-Check ``mnistClassification.pdf``
-
-Latex source：[https://github.com/zhengyima/mnist-classification-latex](https://github.com/zhengyima/mnist-classification-latex)
