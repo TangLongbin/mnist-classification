@@ -1,28 +1,25 @@
 # mnist-classification
-使用多种方法完成MNIST分类任务
 
-Python 3.6
+## Recommended Environment
 
-Pytorch 1.0
+Ubuntu 20.04.6 LTS (Focal Fossa)
 
-Scikit-learn 0.21
+Python 3.8.1
 
-无需下载数据直接跑，代码自动下载
+Pytorch 2.2.1
 
+Scikit-learn 1.3.2
 
+Scikit-image 0.21.0
 
+## Model
 
-## 模型
+* Logistic Regression
+* KNN (K-Nearest Neighbors)
+* SVM (Support Vector Machine)
 
-* 逻辑回归 Logistic Regression
-* 多层感知机 MLP
-* K近邻 KNN
-* 支持向量机 SVM
-* 卷积神经网络 CNN
-* 循环神经网络 RNN
+## Report
 
-## 实验报告
+Check ``mnistClassification.pdf``
 
-见 ```mnistClassification.pdf```
-
-对应的latex源码：[https://github.com/zhengyima/mnist-classification-latex](https://github.com/zhengyima/mnist-classification-latex) 
+Latex source：[https://github.com/zhengyima/mnist-classification-latex](https://github.com/zhengyima/mnist-classification-latex)

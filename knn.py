@@ -28,7 +28,7 @@ def check_mnist():
         DOWNLOAD_MNIST = True
     
     TRAIN_SAMPLES = 60000
-    TEST_SAMPLES = 2000
+    TEST_SAMPLES = 5000
     
     # pick TRAIN_SAMPLES samples for training
     train_data = torchvision.datasets.MNIST(root=DATASET_DIR, train=True, transform=torchvision.transforms.ToTensor(), download=DOWNLOAD_MNIST)
@@ -59,13 +59,14 @@ def knn(train_input, train_output, test_input, test_output):
     '''
         K-Nearest Neighbor Classification
     '''
-    
-    trainData = np.array(train_input)
-    trainLabels = np.array(train_output)
+    # split train data into train and validation
+    n = int(len(train_output) * 0.9)
+    trainData = np.array(train_input[:n])
+    trainLabels = np.array(train_output[:n])
+    valData = np.array(train_input[n:])
+    valLabels = np.array(train_output[n:])
     testData = np.array(test_input)
     testLabels = np.array(test_output)
-    valData = testData
-    valLabels = testLabels
     
     
     # Checking sizes of each data split
@@ -76,7 +77,7 @@ def knn(train_input, train_output, test_input, test_output):
 
     # initialize the values of k for our k-Nearest Neighbor classifier along with the
     # list of accuracies for each value of k
-    kVals = range(1, 30, 2)
+    kVals = range(1, 15, 2)
     accuracies = []
     print("Test k from", kVals)
     # loop over kVals
@@ -106,39 +107,6 @@ def knn(train_input, train_output, test_input, test_output):
     # Evaluate performance of model for each of the digits
     print("EVALUATION ON TESTING DATA")
     print(classification_report(testLabels, predictions))
-
-
-    # # some indices are classified correctly 100% of the time (precision = 1)
-    # # high accuracy (98%)
-
-    # # check predictions against images
-    # # loop over a few random digits
-    # image = testData
-    # j = 0
-    # for i in np.random.randint(0, high=len(testLabels), size=(24,)):
-    #         # np.random.randint(low, high=None, size=None, dtype='l')
-    #     prediction = model.predict(image)[i]
-    #     image0 = image[i].reshape((8, 8)).astype("uint8")
-    #     image0 = exposure.rescale_intensity(image0, out_range=(0, 255))
-    #     # plt.subplot(4,6,j+1)
-    #     # plt.title(str(prediction))
-    #     # plt.imshow(image0,cmap='gray')
-    #     # plt.axis('off')
-
-
-    #         # convert the image for a 64-dim array to an 8 x 8 image compatible with OpenCV,
-    #         # then resize it to 32 x 32 pixels for better visualization
-
-    #         #image0 = imutils.resize(image[0], width=32, inter=cv2.INTER_CUBIC)
-
-    #     j = j+1
-
-    #     # show the prediction
-    #     # print("I think that digit is: {}".format(prediction))
-    #     # print('image0 is ',image0)
-    #     # cv2.imshow("Image", image0)
-    #     # cv2.waitKey(0) # press enter to view each one!
-    # # plt.show()
 
 def main():
     # check dataset

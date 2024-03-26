@@ -40,7 +40,7 @@ class logistic_regression_net(nn.Module):
         return output
 
 
-def logistic_regression(epochs=5, lr=0.0001, batch_size=50):
+def main(epochs=5, lr=0.0001, batch_size=50):
     logistic_net = logistic_regression_net()
     optimizer = torch.optim.Adam(logistic_net.parameters(), lr=lr)
     loss = nn.CrossEntropyLoss()
@@ -81,4 +81,4 @@ def logistic_regression(epochs=5, lr=0.0001, batch_size=50):
             print(f'Epoch: {epoch + 1}, Train Loss: {mean_loss:.6f}, Test Accuracy: {accuracy:.4f}')
 
 if __name__ == "__main__":
-    logistic_regression()
+    main()

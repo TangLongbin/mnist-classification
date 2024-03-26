@@ -60,9 +60,8 @@ def MNIST_DATASET_TEST(downloads, test_amount):
     
     return test_data, test_label
 
-#%% Main function for MNIST dataset    
-if __name__=='__main__':
 
+def main():
     # Training Arguments Settings
     parser = argparse.ArgumentParser(description='Saak')
     parser.add_argument('--download_MNIST', default=True, metavar='DL',
@@ -106,3 +105,8 @@ if __name__=='__main__':
     
     #Show the confusion matrix
     matrix = confusion_matrix(test_label, test_result)
+
+#%% Main function for MNIST dataset    
+if __name__=='__main__':
+    main()
+    
