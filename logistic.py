@@ -1,32 +1,7 @@
-import os
 import torch
 import torch.nn as nn
 import torch.utils.data as Data
-import torchvision
 from tqdm import tqdm
-
-# tunable parameters
-DOWNLOAD_MNIST = False
-
-if not (os.path.exists('./mnist/')) or not os.listdir('./mnist/'):
-    DOWNLOAD_MNIST = True
-else:
-    DOWNLOAD_MNIST = False
-
-train_data = torchvision.datasets.MNIST(
-    root='./mnist/',
-    train=True,
-    transform=torchvision.transforms.ToTensor(),
-    download=DOWNLOAD_MNIST,
-)
-
-test_data = torchvision.datasets.MNIST(
-    root='./mnist/',
-    train=False,
-    transform=torchvision.transforms.ToTensor(),
-    download=DOWNLOAD_MNIST,
-)
-
 
 class logistic_regression_net(nn.Module):
     def __init__(self):
@@ -40,7 +15,7 @@ class logistic_regression_net(nn.Module):
         return output
 
 
-def main(epochs=5, lr=0.0001, batch_size=50):
+def main(train_data, test_data, epochs=5, lr=0.0001, batch_size=50):
     logistic_net = logistic_regression_net()
     optimizer = torch.optim.Adam(logistic_net.parameters(), lr=lr)
     loss = nn.CrossEntropyLoss()
@@ -79,6 +54,3 @@ def main(epochs=5, lr=0.0001, batch_size=50):
             mean_loss = l_all.item()/count
             accuracy = correct / total
             print(f'Epoch: {epoch + 1}, Train Loss: {mean_loss:.6f}, Test Accuracy: {accuracy:.4f}')
-
-if __name__ == "__main__":
-    main()
