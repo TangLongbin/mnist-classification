@@ -1,3 +1,6 @@
+# The code is programmed by 
+# Tang Longbin and Shi Jianrui
+# for EES4408 Final Project.
 import os
 import svm
 import knn

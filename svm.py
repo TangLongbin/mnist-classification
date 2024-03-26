@@ -1,3 +1,6 @@
+# The code is programmed by 
+# Tang Longbin and Shi Jianrui
+# for EES4408 Final Project.
 from sklearn import svm
 from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler

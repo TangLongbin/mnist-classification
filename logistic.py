@@ -1,3 +1,6 @@
+# The code is programmed by 
+# Tang Longbin and Shi Jianrui
+# for EES4408 Final Project.
 import torch
 import torch.nn as nn
 import torch.utils.data as Data
