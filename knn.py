@@ -18,7 +18,7 @@ def main(train_input, train_output, test_input, test_output):
 
     # initialize the values of k for our k-Nearest Neighbor classifier along with the
     # list of accuracies for each value of k
-    kVals = range(1, 15, 2)
+    kVals = [3, 5, 7, 9, 15, 27, 49]
     accuracies = []
     print("Testing k in", kVals)
     # loop over kVals

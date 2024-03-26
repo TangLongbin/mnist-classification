@@ -12,12 +12,13 @@ def main(train_input, train_output, test_input, test_output):
     
     # Training SVM
     print('------Training and testing SVM------')
-    clf = svm.SVC(max_iter=50)
+    clf = svm.SVC(max_iter=3)
     clf.fit(train_input, train_output)
     
     #Test on Training data
     train_result = clf.predict(train_input)
     precision = sum(train_result == train_output)/len(train_output)
+    
     print('Training precision: ', precision)
     
     #Test on test data

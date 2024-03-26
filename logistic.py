@@ -15,7 +15,7 @@ class logistic_regression_net(nn.Module):
         return output
 
 
-def main(train_data, test_data, epochs=5, lr=0.0001, batch_size=50):
+def main(train_data, test_data, epochs=100, lr=0.01, batch_size=50):
     logistic_net = logistic_regression_net()
     optimizer = torch.optim.Adam(logistic_net.parameters(), lr=lr)
     loss = nn.CrossEntropyLoss()
